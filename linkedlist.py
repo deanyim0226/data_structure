@@ -36,38 +36,108 @@ class Linkedlist():
     Hint think about the location||position of the node that you need!  
     """
     def append(self,data):
-        print("append data")
 
-    
+        if self.size == 0:
+             head = Node(data)
+             node = head.next
+             self.size += 1
+        
+        else:
+             
+             head = self.head
+
+             while head.next != None:
+                  
+                  head = head.next
+            
+        node = Node(data)
+        head.next = node
+        self.size += 1
+
+
+
+
+
+
+
     """
     remove data from linked list if the data is not present, leave it as it was before
     Hint you may consider three conditions: one when you remove the first node
     :two when you remove the last node three: everything other than conditions one and two 
     """
+       
 
     def remove(self,data):
-        print("remove data")
 
-    
+        removeNode = None
+        nextNode = None
+        head = self.head
+
+        while head.data != None:
+                
+            if head.data == data:      
+                removeNode = head
+                head = head.next
+                removeNode = None
+
+        while head.next != None:
+             nextNode = head
+        
+        
+
+        
+
+
+
+        
     """
     get data or element associated with a given index from the linked list 
     if index is less than 0 or greater than the length of linkedlist, return 0
     """
     def getDatabyIndex(self,index):
-        return 0
+
+        ptr=0
+        ptr = self.head
+        head = self.head.next
+        value = self.head.data
+
+        
+        while head != None:    
+             
+             if ptr == index:
+                  return value
+             
+        
+
+             
+             
     
     """
     return the size of linked list
     """
 
+
     def getSize(self):
 
-        return 0
+        sizeOflist = 0
+        self.sizeOflist = self.size
+        return sizeOflist
+
     
     """
     display all the elements in linked list 
     Hint try coming up with the way to iterate each node in linkedlist
     """
     def display(self):    
+
+        display = self.head
+
+        while display != None:
+             print(display.data) 
+
+             display = self.head.next
+
+
         print("display")
+
 
