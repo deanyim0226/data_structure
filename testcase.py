@@ -110,6 +110,13 @@ class Test(unittest.TestCase):
     def test_databyIndex(self):
         
         expected_output = 7
+
+        self.llist.append(1)
+        self.llist.append(4)
+        self.llist.append(5)
+        self.llist.append(7)
+        self.llist.append(8)
+
         output = self.llist.getDatabyIndex(4)
 
         self.assertEqual(output, expected_output)
@@ -119,6 +126,12 @@ class Test(unittest.TestCase):
     def test_display(self):
         
         # Redirect stdout to a stirng buffer
+        self.llist.append(1)
+        self.llist.append(4)
+        self.llist.append(5)
+        self.llist.append(7)
+        self.llist.append(8)
+    
         captured_output = StringIO()
         sys.stdout = captured_output
         
@@ -130,7 +143,7 @@ class Test(unittest.TestCase):
         # reset stdout
         sys.stdout = sys.__stdout__
 
-        expected_output = "1\n4\n5\n7\n8"
+        expected_output = "None\n1\n4\n5\n7\n8"
         self.assertEqual(output, expected_output) 
 
     def test_size(self):

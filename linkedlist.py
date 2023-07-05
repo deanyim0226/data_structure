@@ -6,16 +6,19 @@
 # and a referecne to the next node in the list.
 
 """
-singly linked list can be visiualized as image below
+singly linked list can be visiualized as a drawing below
 
-ex)  
-pointer next is denoted as -> 
+ex)
+  
+-pointer "next" is denoted as "->" 
+-NULL is the same as NONE
 
 HEAD -> |---DATA---| -> |---DATA---|  ->  |---DATA---|-> NULL
         |----------|    |----------|      |----------|
         |----------|    |----------|      |----------|
  
 """
+
 class Node():
     def __init__(self, data = None):
             self.data = data
@@ -32,21 +35,24 @@ class Linkedlist():
     append data into linked list 
     """
     def append(self,data):
-     
-        return 0
+        print("append data")
+
     
     """
-    remove data from linked list if the data is not present, throw an error message
+    remove data from linked list if the data is not present, leave it as it was before
     """
 
     def remove(self,data):
-        return 0
+        print("remove data")
+
     
     """
+    assume index start from 1 in linkedlist
     get data or element associated with a given index from the linked list 
+    if index is less than 0 or greater than the length of linkedlist, return 0
     """
     def getDatabyIndex(self,index):
-        return 7
+        return 0
     
     """
     return the size of linked list
@@ -54,18 +60,11 @@ class Linkedlist():
 
     def getSize(self):
 
-        return 5
+        return 0
     
     """
     display all the elements in linked list 
     """
     def display(self):    
-        
-        a = 5
-        test1 = [1,4,5,7,8]
-
-        for i in range(len(test1)):
-             
-             print(test1[i])
-        
+        print("display")
 
