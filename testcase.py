@@ -1,88 +1,149 @@
-# linkedlist is a linear data structure in which elements are 
-# not stored at contiguous memory locations
+from io import StringIO
+import sys
+import unittest
+import solution_linkedlist
 
-# In simple words, it consists of nodes where each node contains a data field 
-# and a referecne to the next node in the list.
 
- 
-class Node:
-    
-    def __init__(self,data = None) -> None:
-        self.data = data
-        self.next = None
+class Test(unittest.TestCase):
 
-class Linkedlist:
+    def setUp(self):
+        self.ex = [None,1,4,5,7,8]
+        self.llist = solution_linkedlist.Linkedlist()
+        pass
 
-    def __init__(self) -> None:
-        self.head = Node()
-        self.size = 0
+    def tearDown(self):
+        pass
 
-    def append(self,data):
 
-        if self.size == 0:
-            
-            node = Node(data)
-            self.head = node
-            self.size += 1
+    def test_append(self):
+        
+        self.llist.append(1)
+        self.llist.append(4)
+        self.llist.append(5)
+        self.llist.append(7)
+        self.llist.append(8)
 
-        else:
-            
-            head = self.head
+        expected_output = len(self.ex)-1
 
-            while head.next != None:
+        output = self.llist.getSize()
+        self.assertEqual(output, expected_output)
 
-                head = head.next
-            
-            node = Node(data)
-            head.next = node
+        head = self.llist.head
+        expected_output = []
 
-            self.size += 1
-
-    def remove(self,value):
-
-        """"
-        head = self.head
-        prevNode = None
-
+        output = self.ex
         while head != None:
-
-            if head.data == value:
-                prevNode.next = None
-
-            prevNode = head    
+            expected_output.append(head.data)
             head = head.next
+   
+        self.assertEqual(output,expected_output)    
 
-        
-          if self.head.data == value:
-        
-            self.head = self.head.next
-        
-    
-      head = self.head
-        
-        prevNode = None
-        nextNode = None
+    def test_remove(self):
 
+        self.llist.append(1)
+        self.llist.append(4)
+        self.llist.append(5)
+        self.llist.append(7)
+        self.llist.append(8)
+  
+        self.llist.remove(5)
+        
+        expected_output = [None,1,4,7,8]
+        output = []
+
+        head = self.llist.head
         while head != None:
-
-            if head.data == value:
-                "delete the node connect prev node pointer to nextNode"
-                nextNode = head.next
-                prevNode.next = nextNode
             
-            prevNode = head
-            head = head.next
-        """
+            output.append(head.data)
+            head = head.next        
+            
+        self.assertEqual(output, expected_output)
 
+
+        self.llist.remove(8)
+
+        expected_output = [None,1,4,7]
+        output = []
+
+        head = self.llist.head
+        while head != None:
+            
+            output.append(head.data)
+            head = head.next        
+        self.assertEqual(output, expected_output)
+
+        self.llist.remove(1)
+
+        expected_output = [None,4,7]
+        output = []
+        
+        head = self.llist.head
+        while head != None:
+            
+            output.append(head.data)
+            head = head.next        
+        self.assertEqual(output, expected_output)
+
+
+        self.llist.remove(7)
+        expected_output = [None,4]
+        output = []
+        
+        head = self.llist.head
+        while head != None:
+            
+            output.append(head.data)
+            head = head.next        
+        self.assertEqual(output, expected_output)
+
+        self.llist.remove(9)
+        expected_output = [None, 4]
+        output = []
+        
+        head = self.llist.head
+        while head != None:
+            
+            output.append(head.data)
+            head = head.next        
+        self.assertEqual(output, expected_output)
+            
+    def test_databyIndex(self):
+        
+        expected_output = 7
+        output = self.llist.getDatabyIndex(4)
+
+        self.assertEqual(output, expected_output)
+        
+        return 0
     
-    def display(self):
+    def test_display(self):
         
-        temp = self.head
-        while temp != None:
-
-            print(temp.data)
-            temp= temp.next    
+        # Redirect stdout to a stirng buffer
+        captured_output = StringIO()
+        sys.stdout = captured_output
         
+        self.llist.display()
 
-########### 1 2 3 ############
+        # get the value of the captured output
+        output = captured_output.getvalue().strip()
 
+        # reset stdout
+        sys.stdout = sys.__stdout__
+
+        expected_output = "1\n4\n5\n7\n8"
+        self.assertEqual(output, expected_output) 
+
+    def test_size(self):
+        
+        self.llist.append(1)
+        self.llist.append(4)
+        self.llist.append(5)
+        self.llist.append(7)
+        self.llist.append(8)
+
+        expected_output = len(self.ex)-1
+        output = self.llist.getSize()
+        self.assertEqual(output, expected_output)
+
+if __name__ == '__main__':
+    unittest.main()

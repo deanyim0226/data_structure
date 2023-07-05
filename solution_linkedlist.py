@@ -16,6 +16,7 @@ HEAD -> |---DATA---| -> |---DATA---|  ->  |---DATA---|-> NULL
         |----------|    |----------|      |----------|
  
 """
+
 class Node():
     def __init__(self, data = None):
             self.data = data
@@ -32,15 +33,61 @@ class Linkedlist():
     append data into linked list 
     """
     def append(self,data):
-     
-        return 0
+        
+        if self.size == 0:
+             
+             newNode = Node(data)
+             self.head.next = newNode
+             self.size += 1
+            
+        else:
+             
+             tempHead = self.head
+
+             while tempHead.next:                      
+                tempHead = tempHead.next
+
+             newNode = Node(data)
+             tempHead.next = newNode
+             self.size += 1
+
     
     """
-    remove data from linked list if the data is not present, throw an error message
+    remove data from linked list if the data is not present, leave it as it is
     """
 
     def remove(self,data):
-        return 0
+  
+        prevNode = None
+        nextNode = None
+        tempHead = self.head
+
+        while tempHead:
+             
+            if tempHead.data == data:
+
+                if prevNode == None:
+
+                    nextNode = tempHead.next
+                    self.head = nextNode
+                    self.size -=1
+                    break
+
+                elif tempHead.next == None:
+                    
+                    prevNode.next = None
+                    self.size -=1
+                    break
+                else:
+                    nextNode = tempHead.next
+                    prevNode.next = nextNode
+                    self.size -=1
+                    break
+
+            prevNode = tempHead
+            tempHead = tempHead.next
+
+  
     
     """
     get data or element associated with a given index from the linked list 
@@ -54,7 +101,7 @@ class Linkedlist():
 
     def getSize(self):
 
-        return 5
+        return self.size
     
     """
     display all the elements in linked list 
