@@ -33,6 +33,7 @@ class Linkedlist():
 
     """
     append data into linked list 
+    Hint think about the location||position of the node that you need!  
     """
     def append(self,data):
         print("append data")
@@ -40,6 +41,8 @@ class Linkedlist():
     
     """
     remove data from linked list if the data is not present, leave it as it was before
+    Hint you may consider three conditions: one when you remove the first node
+    :two when you remove the last node three: everything other than conditions one and two 
     """
 
     def remove(self,data):
@@ -47,7 +50,6 @@ class Linkedlist():
 
     
     """
-    assume index start from 1 in linkedlist
     get data or element associated with a given index from the linked list 
     if index is less than 0 or greater than the length of linkedlist, return 0
     """
@@ -64,6 +66,7 @@ class Linkedlist():
     
     """
     display all the elements in linked list 
+    Hint try coming up with the way to iterate each node in linkedlist
     """
     def display(self):    
         print("display")
