@@ -5,14 +5,20 @@
 # In simple words, it consists of nodes where each node contains a data field 
 # and a referecne to the next node in the list.
 
-
-# we can't have two identical values in the objects /into two differnt objects?
-# we can have  the value in multiple objects
-
-
 """
-singly linked list
+singly linked list can be visiualized as a drawing below
+
+ex)
+  
+-pointer "next" is denoted as "->" 
+-NULL is the same as NONE
+
+HEAD -> |---DATA---| -> |---DATA---|  ->  |---DATA---|-> NULL
+        |----------|    |----------|      |----------|
+        |----------|    |----------|      |----------|
+ 
 """
+
 class Node():
     def __init__(self, data = None):
             self.data = data
@@ -52,13 +58,14 @@ class Linkedlist():
 
 
 
+
     """
-    remove data from linked list if the data is not present, throw an error message
+    remove data from linked list if the data is not present, leave it as it was before
     """
        
 
     def remove(self,data):
-        
+
         removeNode = None
         nextNode = None
         head = self.head
@@ -79,10 +86,11 @@ class Linkedlist():
 
 
 
-                  
-    
+        
     """
+    assume index start from 1 in linkedlist
     get data or element associated with a given index from the linked list 
+    if index is less than 0 or greater than the length of linkedlist, return 0
     """
     def getDatabyIndex(self,index):
 
@@ -106,17 +114,19 @@ class Linkedlist():
     return the size of linked list
     """
 
-    def size(self):
+
+    def getSize(self):
 
         sizeOflist = 0
         self.sizeOflist = self.size
         return sizeOflist
+
     
     """
     display all the elements in linked list 
     """
     def display(self):    
-        
+
         display = self.head
 
         while display != None:
@@ -125,6 +135,6 @@ class Linkedlist():
              display = self.head.next
 
 
-
+        print("display")
 
 
