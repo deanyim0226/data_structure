@@ -1,14 +1,14 @@
 from io import StringIO
 import sys
 import unittest
-import solution_linkedlist
+import linkedlist
 
 
 class Test(unittest.TestCase):
 
     def setUp(self):
         self.ex = [None,1,4,5,7,8]
-        self.llist = solution_linkedlist.Linkedlist()
+        self.llist = linkedlist.Linkedlist()
         pass
 
     def tearDown(self):

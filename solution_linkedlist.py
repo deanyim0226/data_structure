@@ -44,13 +44,13 @@ class Linkedlist():
             
         else:
              
-             tempHead = self.head
+             currNode = self.head
 
-             while tempHead.next:                      
-                tempHead = tempHead.next
+             while currNode.next:                      
+                currNode = currNode.next
 
              newNode = Node(data)
-             tempHead.next = newNode
+             currNode.next = newNode
              self.size += 1
 
     
@@ -62,32 +62,32 @@ class Linkedlist():
   
         prevNode = None
         nextNode = None
-        tempHead = self.head
+        currNode = self.head
 
-        while tempHead:
+        while currNode:
              
-            if tempHead.data == data:
+            if currNode.data == data:
 
                 if prevNode == None:
 
-                    nextNode = tempHead.next
+                    nextNode = currNode.next
                     self.head = nextNode
                     self.size -=1
                     break
 
-                elif tempHead.next == None:
+                elif currNode.next == None:
                     
                     prevNode.next = None
                     self.size -=1
                     break
                 else:
-                    nextNode = tempHead.next
+                    nextNode = currNode.next
                     prevNode.next = nextNode
                     self.size -=1
                     break
 
-            prevNode = tempHead
-            tempHead = tempHead.next
+            prevNode = currNode
+            currNode = currNode.next
 
   
     
@@ -100,15 +100,15 @@ class Linkedlist():
 
         count = 0 
 
-        tempHead = self.head
+        currNode = self.head
 
-        while tempHead:
+        while currNode:
              
              if index == count:
-                 return tempHead.data
+                 return currNode.data
               
              count += 1
-             tempHead = tempHead.next
+             currNode = currNode.next
 
         return 0
     
@@ -125,13 +125,13 @@ class Linkedlist():
     """
     def display(self):    
                 
-        tempHead = self.head
+        currNode = self.head
 
-        while tempHead:
+        while currNode:
              
            
-            print(tempHead.data)
-            tempHead = tempHead.next
+            print(currNode.data)
+            currNode = currNode.next
 
         
 
