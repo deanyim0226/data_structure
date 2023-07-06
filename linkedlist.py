@@ -35,29 +35,24 @@ class Linkedlist():
     append data into linked list 
     Hint think about the location||position of the node that you need!  
     """
+
     def append(self,data):
 
-        if self.size == 0:
-             head = Node(data)
-             node = head.next
-             self.size += 1
+
+        if self.head.next == None: 
+            node = Node(data)
+            self.head.next = node
+            self.size += 1
         
         else:
-             
-             head = self.head
-
+             head = self.head 
              while head.next != None:
-                  
                   head = head.next
             
-        node = Node(data)
-        head.next = node
-        self.size += 1
-
-
-
-
-
+             node = Node(data)
+             head.next = node
+             self.size += 1
+                  
 
 
     """
@@ -70,24 +65,37 @@ class Linkedlist():
 
     def remove(self,data):
 
-        removeNode = None
+        prevNode = None
         nextNode = None
         head = self.head
 
-        while head.data != None:
+        if self.size > 0:
+        
+            while head is not None:
+               
+                if head.data == data:
+                    nextNode = head.next
+                    prevNode.next = nextNode
+                    self.size = self.size - 1
+                            
+                     
+
                 
-            if head.data == data:      
-                removeNode = head
+                prevNode = head 
                 head = head.next
-                removeNode = None
 
-        while head.next != None:
-             nextNode = head
+                
+                     
+                     
         
-        
+                 
 
-        
 
+                    
+
+                
+                            
+                    
 
 
         
@@ -95,20 +103,24 @@ class Linkedlist():
     get data or element associated with a given index from the linked list 
     if index is less than 0 or greater than the length of linkedlist, return 0
     """
+
+  
     def getDatabyIndex(self,index):
-
-        ptr=0
-        ptr = self.head
-        head = self.head.next
-        value = self.head.data
-
+            
+        head = self.head
+        ptr = 0
         
-        while head != None:    
-             
-             if ptr == index:
-                  return value
-             
-        
+        while head is not None:
+                 
+            if ptr == index:
+                        
+                return head.data
+                    
+            ptr += 1
+            head = head.next      
+                        
+                    
+        return 0
 
              
              
@@ -120,9 +132,7 @@ class Linkedlist():
 
     def getSize(self):
 
-        sizeOflist = 0
-        self.sizeOflist = self.size
-        return sizeOflist
+        return self.size
 
     
     """
@@ -131,14 +141,18 @@ class Linkedlist():
     """
     def display(self):    
 
-        display = self.head
+        head = self.head
 
-        while display != None:
-             print(display.data) 
+        
+        while head != None:
+             print(head.data)
 
-             display = self.head.next
+             head = head.next
+
+        
+    
+        
 
 
-        print("display")
 
-
+     
