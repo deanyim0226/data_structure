@@ -1,6 +1,6 @@
 
 class Node:
-    def __init__(self, data):
+    def __init__(self, data=None):
         self.data = data
         self.next = None
 
@@ -11,80 +11,98 @@ class Stack:
         # add your instance variables
         
         self.head = Node()
+        self.size = 0
     
         pass
 
         # add an element to the top of a stack 
 
-    def push(self, data):
+    def push(self, element):
 
         
 
-        if self.head == None:
-            self.head = Node(data)
+        if self.size == 0:
+           node = Node(element)
+           self.head = node
+           self.size += 1
         
         else:
-            head = self.head.next
-            head = Node(data)
-            self.head.next = head.next 
+            head = self.head
+
+            while head.next is not None:
+                head = head.next
+
+            node = Node(element)
+            head.next = node
+            self.size += 1
         
-
-        
-
-
-        return 0
-
         # remove an element from the top of a stack
         # when you are trying to pop more than the size of stack
         # then you should throw an error 
-<<<<<<< HEAD
-        #  
-    def pop(self, data):
 
-        prevNode = None
-        nextNode = None
-        head = self.head
+    def pop(self):
 
+       curNode = self.head
+       popNode = None
 
-        while head is not None:
+       if self.size > 0:
+            
+            if self.size == 1:
+                self.head = None
+                self.size -= 1
 
-            if head.data == data:
-                nextNode = head.next
-                prevNode.next = nextNode
+            
+            else:
 
-                prevNode = head
-                head = head.next
+                while curNode is not None:
+                
+                
+                    if curNode.next is None:
+                        popNode.next = None
+                        self.size -= 1
 
+                    popNode = curNode
+                    curNode = curNode.next     
 
+                
+                        
+                     
 
-
-=======
-        
-    def pop():
->>>>>>> 261d07d0b3c51da54aea5ef3ca0a569d8349fb17
-
-        return 0
+            
 
         # check whether the stack is empty or not
         # if stack is empty return True else return False
-    def isEmpty():
 
-        head = Node()
+    def isEmpty(self):
 
-        if head is not None:
-            return False
-        else:
+        if self.size == 0:
             return True
+        else:
+            return False
         
 
         # get the value of the top element without removing it
         # if stack is empty, then return -1
-    def peek():
+    def peek(self):
+        
+        curNode = self.head
 
-        head = Node()
+        if self.size == 0:
 
-        if head.next == None:
-            return head.data
+            return -1
+        
+        else:
+            
+            while curNode is not None:
 
-        return 0
+                if curNode.next is None:
+                    
+                    return curNode.data
+                
+                curNode = curNode.next
+                
+
+        
+
+
     
