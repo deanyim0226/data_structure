@@ -60,7 +60,8 @@ class Linkedlist():
     """
     remove data from linked list if the data is not present, leave it as it was before
     Hint you may consider three conditions: one when you remove the first node
-    :two when you remove the last node three: everything other than conditions one and two 
+    :two when you remove the last node three: when you remove the middle node 
+    basically the case excludes two conditions
     """
        
 
@@ -152,7 +153,7 @@ class Linkedlist():
 
         
     
-        
+
 
 
 
