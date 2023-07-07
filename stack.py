@@ -5,9 +5,7 @@ class Node:
         self.next = None
 
 class Stack:
-        # your job is to implement stack data structure by using linkedlist that you
-        # previously implemented. Keep in mind that you can always modify and change your linkedlist
-        # as needed 
+        # your job is to implement stack data structure by using linkedlist
 
     def __init__(self):
         # add your instance variables
@@ -39,6 +37,7 @@ class Stack:
         # remove an element from the top of a stack
         # when you are trying to pop more than the size of stack
         # then you should throw an error 
+<<<<<<< HEAD
         #  
     def pop(self, data):
 
@@ -59,10 +58,15 @@ class Stack:
 
 
 
+=======
+        
+    def pop():
+>>>>>>> 261d07d0b3c51da54aea5ef3ca0a569d8349fb17
 
         return 0
 
         # check whether the stack is empty or not
+        # if stack is empty return True else return False
     def isEmpty():
 
         head = Node()
@@ -74,7 +78,7 @@ class Stack:
         
 
         # get the value of the top element without removing it
-
+        # if stack is empty, then return -1
     def peek():
 
         head = Node()
