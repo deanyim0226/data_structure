@@ -1,13 +1,14 @@
 from io import StringIO
 import sys
 import unittest
-import solution_doublyLinkedlist
+import doublyLinkedlist
+#import solutions.solution_doublyLinkedlist as solution_doublyLinkedlist
 
 class Test(unittest.TestCase):
 
     def setUp(self):
         self.ex = [None,1,4,5,7,8]
-        self.linkedList = solution_doublyLinkedlist.Linkedlist()
+        self.linkedList = doublyLinkedlist.Linkedlist()
         pass
 
     def tearDown(self):

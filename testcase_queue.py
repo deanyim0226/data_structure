@@ -1,10 +1,11 @@
 import unittest
-import solution_queue
+import queues
+#import solutions.solution_queue as solution_queue
 
 class Test(unittest.TestCase):
     def setUp(self):
         self.ex = [1,4,5,7,8]
-        self.queue = solution_queue.Queue()
+        self.queue = queues.Queue()
         pass
 
     def tearDown(self):
