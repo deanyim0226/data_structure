@@ -1,3 +1,25 @@
+# doubly linkedlist is a linear data structure in which elements are 
+# not stored at contiguous memory locations
+
+# In simple words, it consists of nodes where each node contains a data field 
+# and a referecne to the next node and to previous in the list.
+
+"""
+doubly linked list can be visiualized as a drawing below
+
+ex)
+  
+-pointer "next" is denoted as "->" 
+-pointer "prev" is denoted as "<-"
+-NULL is the same as NONE
+
+HEAD -> |---DATA---| -> |---DATA---|  ->  |---DATA---|-> NULL
+        |----------|    |----------|      |----------|
+        |----------| <- |----------|  <-  |----------|
+
+            Head  <-  |prev Tail next|  -> LastNode 
+ 
+"""
 class Node:
 
     def __init__(self,data = None) -> None:
