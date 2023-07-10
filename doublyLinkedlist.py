@@ -1,6 +1,6 @@
 class Node:
 
-    def __init__(self,data = None) -> None:
+    def __init__(self,data = None):
         self.data = data
         self.next = None
         self.prev = None
@@ -10,7 +10,7 @@ class Node:
 class Linkedlist():
 
 
-    def __init__(self) -> None:
+    def __init__(self):
         
         self.head = Node()
         self.tail = Node()
@@ -29,12 +29,28 @@ class Linkedlist():
     # display elements in linkedlist from the last element
     
     def displayFromLastElement(self):
-
+   
+            
         return 0
     
     # add new node to right next to the head
         
     def appendToFirst(self,data):
+
+        currNode = self.head
+        tailNode = self.tail
+        newNode = None
+        size = self.size
+
+        while currNode.next is not None:
+            currNode.next = currNode
+            tailNode = currNode.next
+            size += 1
+
+            if newNode.data == data:
+                self.head.next = newNode
+            
+
     
         return 0
     
@@ -43,6 +59,7 @@ class Linkedlist():
     # remember to point to prevNode and nextNode
         
     def remove(self,data):
+        currNode = self.head
 
     
         return 0
@@ -75,7 +92,9 @@ class Linkedlist():
     # return length of linkedlist
     def legnth(self):
 
-        return 0
+
+
+        return self.size
 
     
     
