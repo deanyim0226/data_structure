@@ -17,6 +17,8 @@ class Queue:
     # return the first element in queue without removing
     def front(self,data):
 
+        currNode = self.head
+
         return 0
     # enqueue element meaning append element to the end of queue
     def enqueue(self,data):
