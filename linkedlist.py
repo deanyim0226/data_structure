@@ -19,8 +19,6 @@ HEAD -> |---DATA---| -> |---DATA---|  ->  |---DATA---|-> NULL
  
 """
 
-print("hello world")
-
 class Node():
     def __init__(self, data = None):
             self.data = data
